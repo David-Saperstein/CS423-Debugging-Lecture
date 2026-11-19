@@ -8,6 +8,7 @@ def reserve_inventory(products, order):
 def restock_product(products, product_id, amount):
     for product in products:
         if product["id"] == product_id:
-            product["stock"] = amount
+            product["stock"] = amount + product["stock"]
+            #Fixed bug on line 12 that updating amount of stock as amount restocked, not amount restocked + total stock
             return product
     return None
